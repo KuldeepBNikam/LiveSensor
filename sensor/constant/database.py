@@ -1,0 +1,2 @@
+DATABASE_NAME  = "KuldeepDB"
+COLLECTION_NAME = "sensor"
