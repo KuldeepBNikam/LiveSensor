@@ -1,0 +1,8 @@
+artifact
+saved_models
+venv
+docs
+flowchart
+notebooks
+.git
+aps_failure_training_set.csv
