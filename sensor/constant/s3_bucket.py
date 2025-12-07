@@ -1,2 +1,2 @@
-TRAINING_BUCKET_NAME = "s"
-PREDICTION_BUCKET_NAME = "s"
+TRAINING_BUCKET_NAME = "sensork-bucket"
+PREDICTION_BUCKET_NAME = "sensor-datasource"
