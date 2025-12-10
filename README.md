@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="https://your-image-link-here" width="70%">
-  <br/>
-  <em>Figure: SenseX Pipeline Architecture</em>
-</p>
 
 🚀 Overview
 
