@@ -1,111 +1,128 @@
-🧠 LiveSensor
+<p align="center">
+  <img src="https://your-image-link-here" width="70%">
+  <br/>
+  <em>Figure: SenseX Pipeline Architecture</em>
+</p>
 
-A smart, modular data sensing and analysis system designed for real-time sensor data handling, processing, and intelligent decision-making.
+🚀 Overview
+
+SenseX is a fully automated, production-style Machine Learning pipeline built to process sensor data, train predictive models, and deploy them using Docker and AWS.
+This project focuses on predictive maintenance, transforming raw sensor inputs into actionable insights.
+
+It replicates how real ML systems run in companies — with pipelines, automation, deployment, and monitoring.
+
+🧠 Core Features
+✔ Data Engineering
+
+Reads and preprocesses sensor data
+
+Schema validation + drift detection
+
+Missing value checks
+
+Scaling, encoding, and feature transformation
+
+✔ Model Engineering
+
+Trains multiple ML models
+
+Selects the best-performing model
+
+Saves the final model in a registry (saved_models/)
+
+✔ Deployment Ready
+
+FastAPI endpoint for real-time predictions
+
+Dockerized application
+
+Automated CI/CD with GitHub Actions
+
+AWS deployment (ECR + EC2)
+
+🏗 Architecture
+Raw Data → Data Ingestion → Validation → Transformation → Model Training → Evaluation → Model Pusher → Deployment
 
 📁 Project Structure
-sensorlive/
-│
-├── livesensor/               # Main project source code
-│   ├── __init__.py
-│   ├── ... (core modules)
-│
-├── sensor/                   # Sensor-specific modules
-│   ├── __init__.py
-│
-├── setup.py                  # Installation setup script
-├── requirements.txt          # Python dependencies
-├── sensor.egg-info/          # Package metadata
-├── dist/                     # Build distribution files
-├── venv/                     # Local virtual environment
-└── README.md (this file)
+sensor/
+ ├── components/
+ ├── pipelines/
+ ├── config/
+ ├── utils/
+ ├── artifacts/
+ └── saved_models/
+main.py
+app.py
+Dockerfile
+requirements.txt
 
-🚀 Features
+⚙️ Tech Stack
 
-📡 Real-time Sensor Data Integration
-Supports continuous monitoring from multiple IoT or simulated data sources.
+Python 3.10
 
-🧩 Modular Architecture
-Easy to extend for new sensor types or processing pipelines.
+Scikit-learn
 
-⚙️ Python Package Setup
-Includes a setup.py and requirements.txt for quick installation.
+Pandas / NumPy
 
-📊 Data Analysis Ready
-Designed to integrate with ML pipelines or analytics dashboards.
+FastAPI
 
-⚙️ Installation
+Docker
 
-Clone the repository
+GitHub Actions (CI/CD)
 
-git clone https://github.com/KuldeepBNikam/LiveSensor.git
-cd LiveSensor
+AWS EC2 + ECR
 
+▶️ How to Run Locally
+1️⃣ Create Environment
+conda create -n sensor python=3.10 -y
+conda activate sensor
 
-Activate environment
-
-conda activate F:\CDAC\SENSORLIVE\venv
-
-
-Install dependencies
-
+2️⃣ Install Dependencies
 pip install -r requirements.txt
 
+3️⃣ Run Training Pipeline
+python main.py
 
-Run the setup (optional)
-
-python setup.py install
-
-🧪 Usage Example
-from sensor import LiveSensor
-
-sensor = LiveSensor()
-sensor.connect()
-data = sensor.read_data()
-sensor.process(data)
+4️⃣ Start FastAPI Server
+uvicorn app:app --reload
 
 
-(Replace LiveSensor with your main class/module name as per implementation.)
+API will start at:
+📍 http://127.0.0.1:8000
 
-🧰 Requirements
+🐳 Docker Usage
+Build Image
+docker build -t sensor-app .
 
-All dependencies are listed in requirements.txt.
-Common ones may include:
+Run Container
+docker run -p 8080:8080 sensor-app
 
-numpy
+☁️ AWS Deployment (Summary)
 
-pandas
+Build Docker image
 
-matplotlib
+Push to AWS ECR
 
-scikit-learn
+Pull image on EC2 instance
 
-flask / fastapi (if web component exists)
+Run the container
 
-🧩 Development
+GitHub Actions automates builds + deployments
 
-To contribute or modify:
+🎯 Why I Built SenseX
 
-# install in editable mode
-pip install -e .
+To understand how real machine learning projects work outside notebooks.
 
-📈 Future Scope
+I wanted hands-on experience with:
 
-Integration with cloud-based dashboards
+ML pipelines
 
-AI-powered anomaly detection
+Dockerization
 
-Sensor calibration module
+CI/CD workflows
 
-Web-based monitoring interface
+Cloud deployment
 
-👨‍💻 Author
+Production-level logging and structure
 
-Developed by Kuldeep Nikam
-
-💡 CDAC Project — “LiveSensor”
-🗓️ Version 0.0.1 | Python 3.8+
-
-🪪 License
-
-This project is licensed under the MIT License — see LICENSE file for details.
-##Dont know about licence##
+SenseX helped me develop end-to-end ML engineering skills.
